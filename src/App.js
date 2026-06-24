@@ -28,8 +28,9 @@ export default function App() {
         <p className="eyebrow c">Process intelligence from conversations</p>
         <h1>See how your company actually runs, and where it&rsquo;s breaking.</h1>
         <p className="sub">
-          PulseTrack reconstructs your real processes from the conversations your
-          teams already have, then shows you where work breaks down.
+          Your teams already work in Slack, email, and calls. PulseTrack reads
+          those conversations, reconstructs how work actually flows, and shows
+          you exactly where it stalls.
         </p>
         <div className="cta">
           <a href="#access" className="btn btn-primary">Request access</a>
@@ -43,7 +44,6 @@ export default function App() {
           <path className="conv" style={{ "--d": "1.1s" }} d="M225,168 C340,180 390,198 470,212" />
           <path className="conv" style={{ "--d": "1.2s" }} d="M205,262 C330,250 390,232 470,216" />
           <path className="conv" style={{ "--d": "1.3s" }} d="M300,352 C400,300 430,248 472,220" />
-
           <path className="spine-line" style={{ "--d": "1.5s" }} d="M478,215 L838,215" />
 
           <g className="frag" style={{ "--d": ".10s" }}>
@@ -94,14 +94,15 @@ export default function App() {
           <p className="eyebrow c">The problem</p>
           <h2>Stop chasing issues. Fix the processes underneath them.</h2>
           <p className="lead">
-            Every stalled deal and dropped handoff is a symptom of a broken process,
-            and that story never reaches your systems of record. It lives in your
-            conversations. PulseTrack reads it and shows you the pattern behind the
-            fires.
+            A deal sits six days because approval is stuck with legal and no one
+            owns it. A handoff quietly drops and no one notices for a week. None
+            of it reaches your CRM or your dashboards. It only lives in the
+            conversation. That&rsquo;s the work you can&rsquo;t see, and it&rsquo;s
+            where your time and revenue actually go.
           </p>
           <p className="emphasis">
-            Reconstructed from conversations you already have.{" "}
-            <span className="hl">Mapped to where work breaks.</span>
+            PulseTrack turns that invisible layer into a map.{" "}
+            <span className="hl">Every process, every owner, every stall.</span>
           </p>
         </div>
       </section>
@@ -115,25 +116,25 @@ export default function App() {
             <div className="stepc">
               <span className="k">01</span>
               <h3>Connect</h3>
-              <p>Connect the channels where work happens: Slack, email, calls. No new tools.</p>
+              <p>Connect the channels where work happens: Slack, email, calls. Nothing new for your team to adopt.</p>
               <svg className="conn" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9h12M11 5l4 4-4 4" stroke="currentColor" strokeWidth="1.5" /></svg>
             </div>
             <div className="stepc">
               <span className="k">02</span>
               <h3>Classify</h3>
-              <p>Every conversation is classified against the APQC framework, mapping messy language to real processes.</p>
+              <p>Every conversation is matched to a real business process using the APQC framework, the standard cross-industry taxonomy for how companies operate.</p>
               <svg className="conn" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9h12M11 5l4 4-4 4" stroke="currentColor" strokeWidth="1.5" /></svg>
             </div>
             <div className="stepc">
               <span className="k">03</span>
               <h3>Chain</h3>
-              <p>References are linked across threads and meetings, reconstructing each process end to end.</p>
+              <p>References are linked across threads, meetings, and inboxes, reconstructing each process from start to finish.</p>
               <svg className="conn" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9h12M11 5l4 4-4 4" stroke="currentColor" strokeWidth="1.5" /></svg>
             </div>
             <div className="stepc">
               <span className="k">04</span>
               <h3>Surface</h3>
-              <p>We flag where processes break: stalls, dropped handoffs, exceptions, ranked by impact.</p>
+              <p>We surface every stall, dropped handoff, and missing owner, then rank them by what they&rsquo;re costing you so you know what to fix first.</p>
             </div>
           </div>
         </div>
@@ -143,7 +144,7 @@ export default function App() {
       <section className="band" id="uses">
         <div className="wrap">
           <p className="eyebrow">Use cases</p>
-          <h2 style={{ marginBottom: "50px" }}>Insight into the processes that move your business.</h2>
+          <h2 style={{ marginBottom: "50px" }}>The processes that run your business, finally visible.</h2>
           <div className="split">
             <div>
               <div className="feat">
@@ -151,12 +152,12 @@ export default function App() {
                   <svg className="ic" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="4" cy="10" r="2.4" stroke="currentColor" strokeWidth="1.4" /><circle cx="16" cy="5" r="2.4" stroke="currentColor" strokeWidth="1.4" /><circle cx="16" cy="15" r="2.4" stroke="currentColor" strokeWidth="1.4" /><path d="M6 9l8-3M6 11l8 3" stroke="currentColor" strokeWidth="1.4" /></svg>
                   Reconstruct the real process
                 </h3>
-                <p>See how work actually flows: activities, owners, and handoffs as a graph. Not the org chart.</p>
+                <p>See how work actually flows: activities, owners, and handoffs, drawn as a graph. The real thing, not the org chart.</p>
               </div>
               <div className="feat">
                 <h3>
                   <svg className="ic" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2l8 14H2L10 2z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" /><path d="M10 8v3" stroke="currentColor" strokeWidth="1.4" /><circle cx="10" cy="13.5" r=".9" fill="currentColor" /></svg>
-                  Find where work breaks
+                  Find where work stalls
                 </h3>
                 <p>Surface the stalls and dropped handoffs draining time and revenue, ranked by impact.</p>
               </div>
@@ -168,11 +169,10 @@ export default function App() {
                 <p>Every problem sits inside the process where it happens, with the context to fix the cause, not the symptom.</p>
               </div>
             </div>
-
-            <div className="panel" role="img" aria-label="Process health dashboard showing ranked breakages">
+            <div className="panel" role="img" aria-label="Illustrative process health dashboard showing ranked breakages">
               <div className="panel-bar">
                 <span className="dots"><i /><i /><i /></span>
-                <span className="ttl">PROCESS HEALTH</span>
+                <span className="ttl">PROCESS HEALTH &middot; ILLUSTRATIVE</span>
               </div>
               <div className="row">
                 <span className="sev hi" />
@@ -196,22 +196,21 @@ export default function App() {
               </div>
             </div>
           </div>
-
           <div className="cards">
             <div className="card">
               <svg className="ic" width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" strokeWidth="1.4" /><rect x="12" y="3" width="7" height="7" rx="1.5" stroke="currentColor" strokeWidth="1.4" /><rect x="3" y="12" width="7" height="7" rx="1.5" stroke="currentColor" strokeWidth="1.4" /><rect x="12" y="12" width="7" height="7" rx="1.5" stroke="currentColor" strokeWidth="1.4" /></svg>
               <h3>Works with what you use</h3>
-              <p>Unified across every channel and interaction. No migration.</p>
+              <p>Unified across every channel your teams already use. No new tools, no migration.</p>
             </div>
             <div className="card">
               <svg className="ic" width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 2v18M2 11h18" stroke="currentColor" strokeWidth="1.4" /><circle cx="11" cy="11" r="4" stroke="currentColor" strokeWidth="1.4" /></svg>
               <h3>Standardized out of the box</h3>
-              <p>Built on the APQC framework, so your processes speak a shared language from day one.</p>
+              <p>Built on the APQC framework, so every team&rsquo;s processes speak the same language from day one.</p>
             </div>
             <div className="card">
               <svg className="ic" width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 18V8M9 18V4M15 18v-7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg>
               <h3>Track it over time</h3>
-              <p>Watch processes improve or degrade week over week, and measure every fix.</p>
+              <p>Watch each process improve or slip week over week, and prove every fix actually worked.</p>
             </div>
           </div>
         </div>
@@ -221,10 +220,10 @@ export default function App() {
       <section className="band closing" id="access">
         <div className="wrap">
           <p className="eyebrow c">Get started</p>
-          <h2>Make your operations legible.</h2>
+          <h2>See where work is actually stuck.</h2>
           <p className="lead" style={{ marginLeft: "auto", marginRight: "auto" }}>
-            Your real processes, and where they&rsquo;re breaking, from the
-            conversations you already have.
+            Connect one channel and see your first reconstructed process in days.
+            Every stall, every owner, ranked by what it&rsquo;s costing you.
           </p>
           <div className="form">
             <input type="email" placeholder="Work email" aria-label="Work email" />
