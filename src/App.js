@@ -1,24 +1,248 @@
+import React from "react";
 import "./App.css";
-import Home from "./Components/Home";
-import About from "./Components/About";
-import Work from "./Components/Work";
-import Testimonial from "./Components/Testimonial";
-import Contact from "./Components/Contact";
-import Footer from "./Components/Footer";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <br></br><br></br><br></br><br></br>
-      *Landing page in progress, update on: 08/26/2024*
-      <Home path="/"/>
-      <About path="/about"/>
-      <Work path="/work" />
-      {/* <Testimonial /> */}
-      <Contact path="/contact"/>
-      {/* <Footer /> */}
+    <div className="pt-page">
+      <header>
+        <div className="nav">
+          <a className="mark" href="#top" aria-label="PulseTrack home">
+            <svg width="22" height="14" viewBox="0 0 22 14" aria-hidden="true">
+              <line x1="4" y1="7" x2="18" y2="7" stroke="#6E78F0" strokeWidth="1.4" />
+              <circle cx="4" cy="7" r="3" fill="#F0A93B" />
+              <circle cx="18" cy="7" r="3" fill="#6E78F0" />
+            </svg>
+            PulseTrack
+          </a>
+          <nav className="nav-links">
+            <a href="#how">How it works</a>
+            <a href="#uses">Use cases</a>
+            <a href="#access" className="btn btn-primary">Request access</a>
+          </nav>
+        </div>
+      </header>
+
+      <span id="top" />
+
+      <section className="hero">
+        <p className="eyebrow c">Process intelligence from conversations</p>
+        <h1>See how your company actually runs, and where it&rsquo;s breaking.</h1>
+        <p className="sub">
+          PulseTrack reconstructs your real processes from the conversations your
+          teams already have, then shows you where work breaks down.
+        </p>
+        <div className="cta">
+          <a href="#access" className="btn btn-primary">Request access</a>
+          <a href="#how" className="btn btn-ghost">See how it works</a>
+        </div>
+      </section>
+
+      <div className="graph-stage" aria-hidden="true">
+        <svg viewBox="0 0 1000 430" role="img">
+          <path className="conv" style={{ "--d": "1.0s" }} d="M205,77 C330,90 380,180 470,210" />
+          <path className="conv" style={{ "--d": "1.1s" }} d="M225,168 C340,180 390,198 470,212" />
+          <path className="conv" style={{ "--d": "1.2s" }} d="M205,262 C330,250 390,232 470,216" />
+          <path className="conv" style={{ "--d": "1.3s" }} d="M300,352 C400,300 430,248 472,220" />
+
+          <path className="spine-line" style={{ "--d": "1.5s" }} d="M478,215 L838,215" />
+
+          <g className="frag" style={{ "--d": ".10s" }}>
+            <rect className="frag-box" x="40" y="58" width="166" height="36" rx="9" />
+            <text className="frag-text" x="56" y="81">&ldquo;approve the PO?&rdquo;</text>
+          </g>
+          <g className="frag" style={{ "--d": ".26s" }}>
+            <rect className="frag-box" x="58" y="150" width="170" height="36" rx="9" />
+            <text className="frag-text" x="74" y="173">&ldquo;waiting on legal&rdquo;</text>
+          </g>
+          <g className="frag" style={{ "--d": ".42s" }}>
+            <rect className="frag-box" x="40" y="244" width="186" height="36" rx="9" />
+            <text className="frag-text" x="56" y="267">&ldquo;vendor confirmed?&rdquo;</text>
+          </g>
+          <g className="frag" style={{ "--d": ".58s" }}>
+            <rect className="frag-box" x="138" y="334" width="172" height="36" rx="9" />
+            <text className="frag-text" x="154" y="357">&ldquo;who owns this?&rdquo;</text>
+          </g>
+
+          <text className="spine-cap" style={{ "--d": "1.5s" }} x="478" y="158">
+            YOUR PROCESS, RECONSTRUCTED
+          </text>
+
+          <g>
+            <circle className="node" style={{ "--d": "1.55s" }} cx="478" cy="215" r="6.5" />
+            <text className="node-label" style={{ "--d": "1.75s" }} x="478" y="250">INTAKE</text>
+          </g>
+          <g>
+            <circle className="node" style={{ "--d": "1.7s" }} cx="598" cy="215" r="6.5" />
+            <text className="node-label" style={{ "--d": "1.9s" }} x="598" y="250">REVIEW</text>
+          </g>
+          <g>
+            <circle className="ring" cx="718" cy="215" r="11" strokeWidth="1.4" />
+            <circle className="node brk" style={{ "--d": "1.85s" }} cx="718" cy="215" r="7" />
+            <text className="node-label" style={{ "--d": "2.05s" }} x="718" y="250" fill="#F0A93B">APPROVAL</text>
+            <text className="break-flag" style={{ "--d": "2.25s" }} x="718" y="190">stalled &middot; 6 days</text>
+          </g>
+          <g>
+            <circle className="node" style={{ "--d": "2.0s" }} cx="838" cy="215" r="6.5" />
+            <text className="node-label" style={{ "--d": "2.2s" }} x="838" y="250">HANDOFF</text>
+          </g>
+        </svg>
+      </div>
+
+      {/* value band */}
+      <section className="band">
+        <div className="wrap center">
+          <p className="eyebrow c">The problem</p>
+          <h2>Stop chasing issues. Fix the processes underneath them.</h2>
+          <p className="lead">
+            Every stalled deal and dropped handoff is a symptom of a broken process,
+            and that story never reaches your systems of record. It lives in your
+            conversations. PulseTrack reads it and shows you the pattern behind the
+            fires.
+          </p>
+          <p className="emphasis">
+            Reconstructed from conversations you already have.{" "}
+            <span className="hl">Mapped to where work breaks.</span>
+          </p>
+        </div>
+      </section>
+
+      {/* how it works */}
+      <section className="band" id="how">
+        <div className="wrap">
+          <p className="eyebrow">How it works</p>
+          <h2>From conversation to process map, automatically.</h2>
+          <div className="steps4">
+            <div className="stepc">
+              <span className="k">01</span>
+              <h3>Connect</h3>
+              <p>Connect the channels where work happens: Slack, email, calls. No new tools.</p>
+              <svg className="conn" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9h12M11 5l4 4-4 4" stroke="currentColor" strokeWidth="1.5" /></svg>
+            </div>
+            <div className="stepc">
+              <span className="k">02</span>
+              <h3>Classify</h3>
+              <p>Every conversation is classified against the APQC framework, mapping messy language to real processes.</p>
+              <svg className="conn" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9h12M11 5l4 4-4 4" stroke="currentColor" strokeWidth="1.5" /></svg>
+            </div>
+            <div className="stepc">
+              <span className="k">03</span>
+              <h3>Chain</h3>
+              <p>References are linked across threads and meetings, reconstructing each process end to end.</p>
+              <svg className="conn" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9h12M11 5l4 4-4 4" stroke="currentColor" strokeWidth="1.5" /></svg>
+            </div>
+            <div className="stepc">
+              <span className="k">04</span>
+              <h3>Surface</h3>
+              <p>We flag where processes break: stalls, dropped handoffs, exceptions, ranked by impact.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* use cases */}
+      <section className="band" id="uses">
+        <div className="wrap">
+          <p className="eyebrow">Use cases</p>
+          <h2 style={{ marginBottom: "50px" }}>Insight into the processes that move your business.</h2>
+          <div className="split">
+            <div>
+              <div className="feat">
+                <h3>
+                  <svg className="ic" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="4" cy="10" r="2.4" stroke="currentColor" strokeWidth="1.4" /><circle cx="16" cy="5" r="2.4" stroke="currentColor" strokeWidth="1.4" /><circle cx="16" cy="15" r="2.4" stroke="currentColor" strokeWidth="1.4" /><path d="M6 9l8-3M6 11l8 3" stroke="currentColor" strokeWidth="1.4" /></svg>
+                  Reconstruct the real process
+                </h3>
+                <p>See how work actually flows: activities, owners, and handoffs as a graph. Not the org chart.</p>
+              </div>
+              <div className="feat">
+                <h3>
+                  <svg className="ic" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2l8 14H2L10 2z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" /><path d="M10 8v3" stroke="currentColor" strokeWidth="1.4" /><circle cx="10" cy="13.5" r=".9" fill="currentColor" /></svg>
+                  Find where work breaks
+                </h3>
+                <p>Surface the stalls and dropped handoffs draining time and revenue, ranked by impact.</p>
+              </div>
+              <div className="feat">
+                <h3>
+                  <svg className="ic" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10l4 4 8-9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                  Issues mapped to process, not noise
+                </h3>
+                <p>Every problem sits inside the process where it happens, with the context to fix the cause, not the symptom.</p>
+              </div>
+            </div>
+
+            <div className="panel" role="img" aria-label="Process health dashboard showing ranked breakages">
+              <div className="panel-bar">
+                <span className="dots"><i /><i /><i /></span>
+                <span className="ttl">PROCESS HEALTH</span>
+              </div>
+              <div className="row">
+                <span className="sev hi" />
+                <div className="meta"><div className="proc">Order-to-cash &middot; Approval</div><div className="subt">14 deals stalled awaiting sign-off</div></div>
+                <span className="val">$340K</span>
+              </div>
+              <div className="row">
+                <span className="sev hi" />
+                <div className="meta"><div className="proc">Procurement &middot; Vendor confirm</div><div className="subt">handoff dropped to legal, no owner</div></div>
+                <span className="val">9 days</span>
+              </div>
+              <div className="row">
+                <span className="sev md" />
+                <div className="meta"><div className="proc">Onboarding &middot; Provisioning</div><div className="subt">repeated back-and-forth on access</div></div>
+                <span className="val">22 threads</span>
+              </div>
+              <div className="row">
+                <span className="sev lo" />
+                <div className="meta"><div className="proc">Support &middot; Escalation</div><div className="subt">within normal range</div></div>
+                <span className="val dim">stable</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="cards">
+            <div className="card">
+              <svg className="ic" width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" strokeWidth="1.4" /><rect x="12" y="3" width="7" height="7" rx="1.5" stroke="currentColor" strokeWidth="1.4" /><rect x="3" y="12" width="7" height="7" rx="1.5" stroke="currentColor" strokeWidth="1.4" /><rect x="12" y="12" width="7" height="7" rx="1.5" stroke="currentColor" strokeWidth="1.4" /></svg>
+              <h3>Works with what you use</h3>
+              <p>Unified across every channel and interaction. No migration.</p>
+            </div>
+            <div className="card">
+              <svg className="ic" width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 2v18M2 11h18" stroke="currentColor" strokeWidth="1.4" /><circle cx="11" cy="11" r="4" stroke="currentColor" strokeWidth="1.4" /></svg>
+              <h3>Standardized out of the box</h3>
+              <p>Built on the APQC framework, so your processes speak a shared language from day one.</p>
+            </div>
+            <div className="card">
+              <svg className="ic" width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 18V8M9 18V4M15 18v-7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg>
+              <h3>Track it over time</h3>
+              <p>Watch processes improve or degrade week over week, and measure every fix.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* closing cta */}
+      <section className="band closing" id="access">
+        <div className="wrap">
+          <p className="eyebrow c">Get started</p>
+          <h2>Make your operations legible.</h2>
+          <p className="lead" style={{ marginLeft: "auto", marginRight: "auto" }}>
+            Your real processes, and where they&rsquo;re breaking, from the
+            conversations you already have.
+          </p>
+          <div className="form">
+            <input type="email" placeholder="Work email" aria-label="Work email" />
+            <button className="btn btn-primary" type="button">Request access</button>
+          </div>
+          <p className="fineprint">Early access &middot; Connect one channel to start</p>
+        </div>
+      </section>
+
+      <footer>
+        <div className="foot">
+          <a className="mark" href="#top">
+            <svg width="20" height="13" viewBox="0 0 22 14" aria-hidden="true"><line x1="4" y1="7" x2="18" y2="7" stroke="#6E78F0" strokeWidth="1.4" /><circle cx="4" cy="7" r="3" fill="#F0A93B" /><circle cx="18" cy="7" r="3" fill="#6E78F0" /></svg>
+            PulseTrack
+          </a>
+          <span className="foot-r">&copy; PulseTrack &middot; process intelligence from conversations</span>
+        </div>
+      </footer>
     </div>
   );
 }
-
-export default App;
