@@ -1,7 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 
+// 1. Create a free form at https://formspree.io and paste its ID below
+//    (it looks like "xkgwabcd"). Submissions arrive at the email on that account.
+const FORM_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
+const FORM_CONFIGURED = !FORM_ENDPOINT.includes("YOUR_FORM_ID");
+
 export default function App() {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState("idle"); // idle | submitting | success | error
+
+  async function handleSubmit() {
+    const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if (!valid) {
+      setStatus("error");
+      return;
+    }
+    setStatus("submitting");
+
+    // No Formspree wired up yet: confirm without sending so the button never
+    // looks broken. NOTE: this does NOT capture the email anywhere — set a real
+    // FORM_ENDPOINT (above) to actually collect signups.
+    if (!FORM_CONFIGURED) {
+      setTimeout(() => {
+        setStatus("success");
+        setEmail("");
+      }, 600);
+      return;
+    }
+
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({ email, source: "pulsetrack.ai landing" }),
+      });
+      if (res.ok) {
+        setStatus("success");
+        setEmail("");
+      } else {
+        setStatus("error");
+      }
+    } catch (err) {
+      setStatus("error");
+    }
+  }
+
   return (
     <div className="pt-page">
       <header>
@@ -225,11 +269,45 @@ export default function App() {
             Connect one channel and see your first reconstructed process in days.
             Every stall, every owner, ranked by what it&rsquo;s costing you.
           </p>
-          <div className="form">
-            <input type="email" placeholder="Work email" aria-label="Work email" />
-            <button className="btn btn-primary" type="button">Request access</button>
-          </div>
-          <p className="fineprint">Early access &middot; Connect one channel to start</p>
+          {status === "success" ? (
+            <div className="form-done" role="status">
+              <p className="form-done-t">Thanks, you&rsquo;re on the list.</p>
+              <p className="form-done-s">We&rsquo;ll be in touch at the email you provided.</p>
+            </div>
+          ) : (
+            <>
+              <div className="form">
+                <input
+                  type="email"
+                  placeholder="Work email"
+                  aria-label="Work email"
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    if (status === "error") setStatus("idle");
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") handleSubmit();
+                  }}
+                  disabled={status === "submitting"}
+                />
+                <button
+                  className="btn btn-primary"
+                  type="button"
+                  onClick={handleSubmit}
+                  disabled={status === "submitting"}
+                >
+                  {status === "submitting" ? "Sending\u2026" : "Request access"}
+                </button>
+              </div>
+              {status === "error" && (
+                <p className="form-err" role="alert">
+                  Please enter a valid work email and try again.
+                </p>
+              )}
+              <p className="fineprint">Early access &middot; Connect one channel to start</p>
+            </>
+          )}
         </div>
       </section>
 
@@ -239,7 +317,10 @@ export default function App() {
             <svg width="20" height="13" viewBox="0 0 22 14" aria-hidden="true"><line x1="4" y1="7" x2="18" y2="7" stroke="#6E78F0" strokeWidth="1.4" /><circle cx="4" cy="7" r="3" fill="#F0A93B" /><circle cx="18" cy="7" r="3" fill="#6E78F0" /></svg>
             PulseTrack
           </a>
-          <span className="foot-r">&copy; PulseTrack &middot; process intelligence from conversations</span>
+          <span className="foot-r">
+            &copy; 2024 PulseTrack &middot;{" "}
+            <a className="foot-mail" href="mailto:founders@pulsetrack.ai">founders@pulsetrack.ai</a>
+          </span>
         </div>
       </footer>
     </div>

@@ -200,3 +200,12 @@ a:focus-visible,.btn:focus-visible,input:focus-visible{outline:2px solid var(--i
   .steps4{grid-template-columns:1fr}
   .hero{padding-top:60px}
 }
+
+/* ---- form states + footer contact (added) ---- */
+.form-err{font-size:14px;color:var(--amber);margin:10px 0 0;text-align:center}
+.form-done{max-width:460px;margin:28px auto 12px;padding:20px 22px;text-align:center;
+  border:1px solid var(--line-2);border-radius:var(--r);background:rgba(70,192,138,.07)}
+.form-done-t{font-family:var(--font-display);font-size:18px;color:var(--ink);margin:0 0 4px;font-weight:500}
+.form-done-s{font-size:14.5px;color:var(--body);margin:0}
+.foot-mail{color:var(--indigo)}
+.foot-mail:hover{color:var(--ink);text-decoration:underline}
